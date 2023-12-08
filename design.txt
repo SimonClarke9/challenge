@@ -1,0 +1,38 @@
+
+objects:
+    1. conveyor belt:
+        a: Has a capacity for n components, defined by setting CONVEYOR_BELT_COMPONENT_ALLOWED_NUM. For this challeng use a value of 3.
+        b: Belt speed is n Slots, defined by setting CONVEYOR_BELT_SPEED_BY_SLOTS. We will use a speed of 1.
+
+    2. worker:
+        a: For each component slots on the conyeyor belt, there will be two workers.
+        b: Workers are positioned either side of the conveyor belt (opposite each other), we will call WA1 worker A in slot 1, WB2 - worker B in slot 2.  
+        c: Workers pick from the same slot.
+            rule1: WA(n) and WB(n) are not allowed to pick from the same slot in the same Event.
+            rule2: Worker may place a Product into an empty slot, 4 Events after picking the second component. defined by setting PRODUCT_CONSTRUCTION_SPEED_BY_SLOTS.
+            rule3: Workers may only hold two items  (Component A + Component B)  xor Product.
+            rule4: Workers may only pick a single Component A or a single Componet B.
+            
+
+    3. component:
+        a:  Component A
+        b:  Component B 
+        c:  Product  (finnished component)
+            
+
+    4. Event:
+        a: Time component measure in natural number, 0 = Time has not started. 1 = the first event.
+        b: Run simulation for 100 events.  defined by MAX_NUMBER_EVENTS, Set to 100. Therefor the last event will be 100.
+
+    5. Statistics:
+        a: compute the number of Products, finished from the conveyor belt.
+        b: compute the number of wasted components, from the conveyor belt.
+
+
+    6. Persitant Values:
+        -   CONVEYOR_BELT_COMPONENT_ALLOWED_NUM : 5,
+        -   CONVEYOR_BELT_SPEED_BY_SLOTS : 1,
+        -   PRODUCT_CONSTRUCTION_SPEED_BY_SLOTS : 4,
+        -   MAX_NUMBER_EVENTS : 100,
+        -   COMPONENT_TYPES : ( A , B )
+        -   ALLOWED_COMPONENTS_TYPES : ( A , B, PRODUCT )
